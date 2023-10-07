@@ -1,15 +1,13 @@
-// import bannerImg from "./../assets/banner.jpg";
-
 import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
-    <div className="2xl:container mx-auto">
-      <section className=" bg-[url(https://i.ibb.co/H2RQbpb/banner.jpg)] bg-cover bg-center bg-no-repeat text-black">
-        <div className="bg-gray-100 opacity-90">
+    <>
+      <section className=" bg-[url(https://i.ibb.co/H2RQbpb/banner.jpg)] bg-cover bg-center bg-no-repeat text-white">
+        <div className="bg-gray-900 opacity-90">
           <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
             <div className="mx-auto max-w-4xl text-center">
-              <h1 className="text-3xl/tight sm:text-4xl/tight font-extrabold lg:text-5xl/snug px-2">
+              <h1 className="text-3xl/tight sm:text-4xl/tight font-bold lg:text-5xl/snug px-2">
                 Creating Unforgettable Sporting Experiences, Every Time
               </h1>
 
@@ -32,7 +30,7 @@ const Banner = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 
