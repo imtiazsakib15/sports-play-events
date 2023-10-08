@@ -1,12 +1,13 @@
+
 import aboutUs from "./../assets/about-us.jpg";
 
 const AboutUs = () => {
   return (
-    <div className="container mx-auto px-4 md:px-10 flex items-center flex-col-reverse lg:flex-row gap-16 my-20">
-      <div className="lg:w-1/2">
+    <div className="container mx-auto px-4 md:px-10 flex items-center flex-col-reverse lg:flex-row gap-12 my-20 overflow-hidden">
+      <div className="lg:w-1/2" data-aos="fade-right">
         <img className="rounded-md" src={aboutUs} alt="About Us" />
       </div>
-      <div className="lg:w-1/2 space-y-5 text-justify">
+      <div className="lg:w-1/2 space-y-5 text-justify" data-aos="fade-left">
         <h2 className="text-3xl font-bold text-center lg:text-left">
           About Us - Expert Event Planners
         </h2>

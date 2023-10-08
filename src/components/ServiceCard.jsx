@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ServiceCard = ({ service }) => {
   const { serviceName, image, price, description } = service;
   return (
-    <div className="p-4 border rounded-md space-y-5 flex flex-col">
+    <div data-aos="zoom-in" className="p-4 border rounded-md space-y-5 flex flex-col">
       <img className="w-full h-48 rounded" src={image} alt={serviceName} />
       <h3 className="text-2xl font-semibold flex-1">{serviceName}</h3>
       <p className="flex-1">{description}</p>
@@ -18,8 +18,8 @@ const ServiceCard = ({ service }) => {
   );
 };
 
-// ServiceCard.propTypes = {
-//   service: PropTypes.obj,
-// };
+ServiceCard.propTypes = {
+  service: PropTypes.object,
+};
 
 export default ServiceCard;
