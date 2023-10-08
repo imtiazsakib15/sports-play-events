@@ -7,7 +7,7 @@ const AboutUs = () => {
       <div className="lg:w-1/2" data-aos="fade-right">
         <img className="rounded-md" src={aboutUs} alt="About Us" />
       </div>
-      <div className="lg:w-1/2 space-y-5 text-justify" data-aos="fade-left">
+      <div className="lg:w-1/2 space-y-5" data-aos="fade-left">
         <h2 className="text-3xl font-bold text-center lg:text-left">
           About Us - Expert Event Planners
         </h2>
