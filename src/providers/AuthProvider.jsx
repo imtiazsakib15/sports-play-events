@@ -18,8 +18,13 @@ const AuthProvider = ({ children }) => {
 
   const googleProvider = new GoogleAuthProvider();
 
-  const googleLogin = () => {
-    return signInWithPopup(auth, googleProvider);
+  const handleGoogleLogin = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+      toast.success("Log In Successfully!");
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -29,22 +34,20 @@ const AuthProvider = ({ children }) => {
   };
 
   const logOut = () => {
-    signOut(auth).then(() => toast.success("Logged Out Successfully!"));
+    signOut(auth).then(() => toast.success("Log Out Successfully!"));
   };
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
-        console.log(currentUser);
       } else {
-        console.log("no user");
         setUser(null);
       }
     });
   }, []);
 
-  const authInfo = { user, googleLogin, createUser, signIn, logOut };
+  const authInfo = { user, handleGoogleLogin, createUser, signIn, logOut };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
