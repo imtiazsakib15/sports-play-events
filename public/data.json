@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "serviceName": "World Cup Opening Ceremony",
+    "image": "https://i.ibb.co/1fVZC3V/wc-opening-ceremony.webp",
+    "price": 6000,
+    "description": "Plan and execute the grand opening ceremony for a World Cup or similar prestigious soccer event, creating a spectacular start to the tournament."
+  },
+  {
+    "id": 2,
+    "serviceName": "Tournament Organization",
+    "image": "https://i.ibb.co/8dGmKYg/tournament-organization.jpg",
+    "price": 10000,
+    "description": "Plan, coordinate, and execute tournaments for various sports, including scheduling, team management, and venue arrangements."
+  },
+  {
+    "id": 3,
+    "serviceName": "League Management",
+    "image": "https://i.ibb.co/p2GBngW/cricket-league.webp",
+    "price": 7000,
+    "description": "Create and manage sports leagues, including fixture scheduling, team registrations, referee coordination, and points tracking."
+  },
+  {
+    "id": 4,
+    "serviceName": "Prize Giving Ceremony",
+    "image": "https://i.ibb.co/T1pp95V/prize-giving.webp",
+    "price": 5000,
+    "description": "Organize and manage the prize giving ceremony for sports events, ensuring a memorable and dignified recognition of winners and participants."
+  },
+  {
+    "id": 5,
+    "serviceName": "Sports Event Planning and Coordination",
+    "image": "https://i.ibb.co/kH9L43C/event-planning.jpg",
+    "price": 8000,
+    "description": "Full-service event planning and coordination, covering conceptualization, budgeting, venue selection, and project management."
+  },
+  {
+    "id": 6,
+    "serviceName": "Sports Fan Engagement Experience",
+    "image": "https://i.ibb.co/58bSQxz/fan-engagement.jpg",
+    "price": 5500,
+    "description": "Craft a captivating and immersive fan engagement experience during sports events, utilizing interactive activities, contests to enhance the overall event atmosphere."
+  }
+]

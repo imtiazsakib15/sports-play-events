@@ -5,7 +5,7 @@ const NavBar = () => {
     <>
       <nav className="sticky w-full bg-white z-20 top-0 border-b border-gray-200">
         <div className="container flex flex-wrap items-center justify-between mx-auto p-4 md:px-10">
-          <Link to="/" className="text-2xl font-semibold">
+          <Link to="/" className="text-xl sm:text-2xl font-semibold">
             sportsPlay Events
           </Link>
           <div className="flex md:order-2">
