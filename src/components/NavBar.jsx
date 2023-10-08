@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import dummyUserImg from "./../assets/dummyUserImg.png";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -11,7 +12,16 @@ const NavBar = () => {
           <Link to="/" className="text-xl sm:text-2xl font-semibold">
             sportsPlay Events
           </Link>
-          <div className="flex md:order-2">
+          <div className="flex items-center gap-3 md:order-2">
+            <div className="text-sm hidden lg:inline-block">
+              <p>{user?.email && user.email}</p>
+              <p>{user?.displayName && user.displayName}</p>
+            </div>
+            <img
+              className="w-8 h-8 rounded-full "
+              src={user?.photoURL ? user.photoURL : dummyUserImg}
+              alt="User Image"
+            />
             {user ? (
               <button
                 onClick={logOut}

@@ -3,25 +3,70 @@ import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import toast from "react-hot-toast";
+import { updateProfile } from "firebase/auth";
+import auth from "../firebase/firebase.config";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { user, googleLogin } = useContext(AuthContext);
+  const { googleLogin, createUser } = useContext(AuthContext);
 
+  //   Register With Google
   const handleGoogleLogin = () => {
     googleLogin()
       .then((result) => {
         console.log(result.user);
+        toast.success("Successfully Registered!");
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error.message);
+      });
+  };
+
+  //   Register With Email and Password
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const imageUrl = e.target.imageUrl.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    if (password.length < 6) {
+      toast.error("Password should have at least 6 characters.");
+      return;
+    }
+    if (!/[A-Z]/.test(password)) {
+      toast.error("Password should have at least one capital letter.");
+      return;
+    }
+    if (!/[^a-zA-Z0-9]/.test(password)) {
+      toast.error("Password should have at least one special character.");
+      return;
+    }
+
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        toast.success("Successfully Registered!");
+        updateProfile(auth.currentUser, {
+          displayName: name ? name : null,
+          photoURL: imageUrl ? imageUrl : null,
+        }).catch(() => {
+          toast.error("An error occured!");
+          return;
+        });
+        result.user.displayName = name ? name : null;
+        result.user.photoURL = imageUrl ? imageUrl : null;
+      })
+      .catch((error) => {
+        toast.error(error.message);
       });
   };
 
   return (
     <>
       <h2 className="text-4xl text-center font-semibold my-10">Register now</h2>
-      <form className="max-w-xl mx-auto px-8">
+      <form onSubmit={handleRegister} className="max-w-xl mx-auto px-8">
         <div className="mb-6">
           <label
             htmlFor="name"
@@ -32,6 +77,7 @@ const Register = () => {
           <input
             type="text"
             id="name"
+            name="name"
             className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             required
           />
@@ -46,6 +92,7 @@ const Register = () => {
           <input
             type="text"
             id="image-url"
+            name="imageUrl"
             className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
           />
         </div>
@@ -59,6 +106,7 @@ const Register = () => {
           <input
             type="email"
             id="email"
+            name="email"
             className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             required
           />
@@ -73,6 +121,7 @@ const Register = () => {
           <input
             type={showPassword ? "text" : "password"}
             id="password"
+            name="password"
             className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             required
           />
@@ -88,7 +137,7 @@ const Register = () => {
             <input
               id="terms"
               type="checkbox"
-              value=""
+              name="toc"
               className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300"
               required
             />
@@ -110,7 +159,10 @@ const Register = () => {
           Register new account
         </button>
         <p className="text-center mt-2">
-          Already have an account? <Link to="/login" className="text-blue-700 font-medium underline">Login Here</Link>
+          Already have an account?{" "}
+          <Link to="/login" className="text-blue-700 font-medium underline">
+            Login Here
+          </Link>
         </p>
       </form>
       <div className="mx-auto w-max mt-10 mb-20">
