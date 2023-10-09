@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const ServiceCard = ({ service }) => {
   const { id, serviceName, image, price, description } = service;
-  
+
   return (
     <div
       data-aos="zoom-in"

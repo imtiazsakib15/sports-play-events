@@ -7,6 +7,7 @@ import Login from "../pages/Login";
 import ServiceDetail from "../pages/ServiceDetail";
 import PrivateRoute from "./PrivateRoute";
 import Blog from "../pages/Blog";
+import Purchased from "../pages/Purchased";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Blog />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/purchased",
+        element: (
+          <PrivateRoute>
+            <Purchased />
           </PrivateRoute>
         ),
       },

@@ -107,6 +107,16 @@ const NavBar = () => {
                   Blog
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  to="/purchased"
+                  className={({ isActive }) =>
+                    isActive ? "text-blue-700 underline" : ""
+                  }
+                >
+                  Purchased
+                </NavLink>
+              </li>
             </ul>
           </div>
         </div>

@@ -6,7 +6,7 @@ Live link of this website - https://sports-play-events.web.app/
 
 - A user can see our 6 services in the home page. By clicking the 'View Details' button he/she can see the details of that service.
 
-- A user can register in our website using email and password.
+- A user can register in our website using email and password. Google sign in option is also available.
 
 - If a user wants to log out from this website, he/she can do it by clicking on the 'Log Out' button which is in top of this website.
 
