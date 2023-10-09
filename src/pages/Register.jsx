@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import toast from "react-hot-toast";
 import { updateProfile } from "firebase/auth";
@@ -9,7 +9,19 @@ import auth from "../firebase/firebase.config";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { handleGoogleLogin, createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { googleLogin, createUser } = useContext(AuthContext);
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then(() => {
+        toast.success("Log In Successfully!");
+        navigate("/");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
 
   //   Register With Email and Password
   const handleRegister = (e) => {
@@ -35,7 +47,6 @@ const Register = () => {
 
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
         toast.success("Successfully Registered!");
 
         updateProfile(auth.currentUser, {
@@ -48,6 +59,8 @@ const Register = () => {
 
         result.user.displayName = name ? name : null;
         result.user.photoURL = imageUrl ? imageUrl : null;
+
+        navigate("/");
       })
       .catch((error) => {
         toast.error(error.message);
@@ -162,7 +175,7 @@ const Register = () => {
           className="font-medium hover:bg-blue-700 hover:text-white rounded-lg border px-20 py-3 flex items-center gap-2"
         >
           <FcGoogle />
-          Sign in with Google
+          Continue with Google
         </button>
       </div>
     </>

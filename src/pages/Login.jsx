@@ -1,13 +1,27 @@
 import { useContext, useState } from "react";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import toast from "react-hot-toast";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { handleGoogleLogin, signIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const { googleLogin, signIn } = useContext(AuthContext);
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then(() => {
+        toast.success("Log In Successfully!");
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -17,6 +31,7 @@ const Login = () => {
     signIn(email, password)
       .then(() => {
         toast.success("Log In Successfully!");
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         toast.error(error.message);
@@ -64,8 +79,8 @@ const Login = () => {
           </span>
         </div>
         <Link className="text-blue-700 block underline mb-6 text-sm font-medium">
-              Forget Password
-            </Link>
+          Forget Password
+        </Link>
         <button
           type="submit"
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 text-center w-full"
@@ -85,7 +100,7 @@ const Login = () => {
           className="font-medium hover:bg-blue-700 hover:text-white rounded-lg border px-20 py-3 flex items-center gap-2"
         >
           <FcGoogle />
-          Sign in with Google
+          Continue with Google
         </button>
       </div>
     </>
