@@ -99,12 +99,12 @@ const NavBar = () => {
               </li>
               <li>
                 <NavLink
-                  to="/contact"
+                  to="/blog"
                   className={({ isActive }) =>
                     isActive ? "text-blue-700 underline" : ""
                   }
                 >
-                  Contact
+                  Blog
                 </NavLink>
               </li>
             </ul>
