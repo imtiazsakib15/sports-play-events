@@ -6,7 +6,7 @@ export const DataContext = createContext([]);
 const DataProvider = ({ children }) => {
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch("/public/data.json")
+    fetch("/data.json")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
