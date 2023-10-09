@@ -1,8 +1,15 @@
-# React + Vite
+## The name of the website is '[sportsPlay Events](https://sports-play-events.web.app/)'
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live link of this website - https://sports-play-events.web.app/
 
-Currently, two official plugins are available:
+## Features and Functionalities of this website
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- A user can see our 6 services in the home page. By clicking the 'View Details' button he/she can see the details of that service.
+
+- A user can register in our website using email and password.
+
+- If a user wants to log out from this website, he/she can do it by clicking on the 'Log Out' button which is in top of this website.
+
+- A user can read blog from the blog page.
+
+- In this website, a user can purchase any service which we provide.

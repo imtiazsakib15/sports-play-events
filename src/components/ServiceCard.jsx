@@ -7,7 +7,7 @@ const ServiceCard = ({ service }) => {
   return (
     <div
       data-aos="zoom-in"
-      className="p-4 border rounded-md space-y-5 flex flex-col"
+      className="p-4 border rounded-md space-y-5 flex flex-col bg-blue-50"
     >
       <img className="w-full h-48 rounded" src={image} alt={serviceName} />
       <h3 className="text-2xl font-semibold flex-1">{serviceName}</h3>
