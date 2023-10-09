@@ -18,7 +18,7 @@ const Purchased = () => {
     (total, current) => total + current.price,
     0
   );
-  console.log(totalCost);
+  
   return (
     <div className="container mx-auto px-4 md:px-10 my-20">
       <h3 className="text-2xl font-bold">Total Cost: {totalCost}</h3>

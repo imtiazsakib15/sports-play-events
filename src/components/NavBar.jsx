@@ -12,7 +12,7 @@ const NavBar = () => {
           <Link to="/" className="text-xl sm:text-2xl font-semibold">
             sportsPlay Events
           </Link>
-          <div className="flex items-center gap-3 md:order-2">
+          <div className="flex items-center gap-2 md:order-2">
             <div className="text-sm hidden lg:inline-block">
               <p>{user?.email && user.email}</p>
               <p>{user?.displayName && user.displayName}</p>
@@ -65,7 +65,7 @@ const NavBar = () => {
             className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
             id="navbar-sticky"
           >
-            <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white ">
+            <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-5 md:mt-0 md:border-0 md:bg-white ">
               <li>
                 <NavLink
                   to="/"
